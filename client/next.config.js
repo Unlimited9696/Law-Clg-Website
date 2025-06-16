@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-import CompressionPlugin from 'compression-webpack-plugin';
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const nextConfig = {
   images: {
@@ -36,10 +36,8 @@ const nextConfig = {
   staticPageGenerationTimeout: 120,
   distDir: '.next',
   webpack: (config, { dev, isServer }) => {
-    // Only run in production client-side builds
     if (!dev && !isServer) {
       try {
-        // Enable gzip compression
         config.plugins.push(
           new CompressionPlugin({
             algorithm: 'gzip',
@@ -49,7 +47,6 @@ const nextConfig = {
           })
         );
 
-        // Split chunks for better caching
         config.optimization.splitChunks = {
           chunks: 'all',
           maxInitialRequests: Infinity,
@@ -58,9 +55,7 @@ const nextConfig = {
             vendor: {
               test: /[\\/]node_modules[\\/]/,
               name(module) {
-                // Get the name of the package 
                 const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
-                // Return a nice package name to create smaller chunks
                 return `npm.${packageName.replace('@', '')}`;
               },
             },
@@ -70,7 +65,6 @@ const nextConfig = {
         console.warn('Warning: CompressionPlugin configuration failed:', error.message);
       }
     }
-
     return config;
   },
   async headers() {
@@ -79,20 +73,14 @@ const nextConfig = {
         source: '/:all*(svg|jpg|jpeg|png|webp|avif|ico|ttf|woff|woff2)',
         locale: false,
         headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
-          }
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
         ],
       },
       {
         source: '/_next/image(.*)',
         locale: false,
         headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=86400, stale-while-revalidate=31536000'
-          }
+          { key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=31536000' },
         ],
       },
       {
@@ -116,4 +104,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
