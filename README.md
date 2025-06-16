@@ -69,3 +69,7 @@ For SEO optimization guidelines, check the `seo-deployment-guide.md` file.
 ## Note
 
 The `node_modules` directories have been removed from this repository to reduce size. Make sure to run `npm install` in both client and server directories before starting the application. 
+
+
+
+check the website on https://ssnlc.in 
