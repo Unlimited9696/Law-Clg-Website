@@ -1,0 +1,340 @@
+.cdc-container {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cdc-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.members-table-container {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+.members-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    table-layout: fixed;
+    border: 1px solid #e0e0e0;
+}
+
+.members-table th {
+    background-color: #1a237e;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    border-right: 1px solid #3949ab;
+}
+
+.members-table th:last-child {
+    border-right: none;
+}
+
+.sr-col {
+    width: 80px;
+    text-align: center;
+}
+
+.members-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+
+.members-table td:last-child {
+    border-right: none;
+}
+
+.members-table td.sr-col {
+    text-align: center;
+    font-weight: 500;
+    background-color: #f5f5f5;
+}
+
+.members-table tr:last-child td {
+    border-bottom: none;
+}
+
+.members-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.members-table tr:hover {
+    background-color: #e8eaf6;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .cdc-container {
+        padding: 1rem;
+    }
+    
+    .cdc-title {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .members-table th,
+    .members-table td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .members-table {
+        display: block;
+        border: none;
+    }
+    
+    .members-table thead,
+    .members-table tbody,
+    .members-table th,
+    .members-table td,
+    .members-table tr {
+        display: block;
+    }
+    
+    .members-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    .members-table tr {
+        border: 1px solid #ccc;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        background-color: white !important;
+    }
+    
+    .members-table td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+        min-height: 30px;
+    }
+    
+    .members-table td.sr-col {
+        background-color: #1a237e;
+        color: white;
+        text-align: center;
+        padding: 8px;
+        font-weight: bold;
+        font-size: 1rem;
+        padding-left: 0;
+    }
+    
+    .members-table td:last-child {
+        border-bottom: 0;
+    }
+    
+    .members-table td:before {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        content: attr(data-label);
+    }
+    
+    .members-table td:not(.sr-col):nth-of-type(2):before { content: "Name"; }
+    .members-table td:not(.sr-col):nth-of-type(3):before { content: "Designation"; }
+    .members-table td:not(.sr-col):nth-of-type(4):before { content: "Email"; }
+}
+
+.committee-detail-page {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 2rem;
+}
+
+.committee-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.committee-header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.committee-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.committee-content section {
+    background: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.committee-content section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.committee-content h2 {
+    color: #1a237e;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.committee-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #1a237e;
+    border-radius: 2px;
+}
+
+.committee-content p {
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.responsibilities ul, .activities ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.responsibilities li, .activities li {
+    padding: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+.responsibilities li:last-child, .activities li:last-child {
+    border-bottom: none;
+}
+
+.responsibilities li:before, .activities li:before {
+    content: "•";
+    color: #1a237e;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.member-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: #1a237e;
+}
+
+.member-card h3 {
+    color: #1a237e;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.member-card p {
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+.activities {
+    background-color: #e8eaf6;
+}
+
+.activities li {
+    background-color: white;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+    .committee-detail-page {
+        padding: 1rem;
+    }
+
+    .committee-header {
+        padding: 1.5rem;
+    }
+
+    .committee-header h1 {
+        font-size: 2rem;
+    }
+
+    .committee-content section {
+        padding: 1.5rem;
+    }
+
+    .members-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animation for sections */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.committee-content section {
+    animation: fadeInUp 0.5s ease-out forwards;
+    animation-delay: calc(var(--index) * 0.1s);
+} 

@@ -1,0 +1,9 @@
+.hide-on-scroll {
+  transform: translateY(-120%);
+}
+
+@media (min-width: 769px) {
+  .hide-on-scroll {
+    transform: none !important;
+  }
+} 

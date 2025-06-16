@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "lucide-react": "^0.513.0"
+  },
+  "devDependencies": {
+    "stylelint": "^16.20.0",
+    "stylelint-config-standard": "^38.0.0"
+  }
+}

@@ -1,0 +1,84 @@
+{
+    "CarouselImages": [
+        {
+            "ImageLink": "/images/collegepic(1).jpg"
+        },
+        {
+            "ImageLink": "/images/collegepic(2).jpg"
+        },
+        {
+            "ImageLink": "/images/collegepic(9).png"
+        },
+        {
+            "ImageLink": "/images/collegepic(13).jpg"
+        },
+        {
+            "ImageLink": "/images/collegepic(8).jpg"
+        }
+    ],
+    "NoticeLineData": [
+        {
+            "Title": "Law Conference on Constitutional Rights scheduled on 27 September, 2024",
+            "Link": "/"
+        },
+        {
+            "Title": "National Moot Court Competition Registration Open",
+            "Link": "/"
+        },
+        {
+            "Title": "Legal Aid Clinic Now Open for Public",
+            "Link": "/"
+        },
+        {
+            "Title": "Special Lecture Series on Criminal Law Amendments",
+            "Link": "/"
+        }
+    ],
+    "DepartmentsData": [
+        {
+            "Title": "LLB",
+            "Keyword": "llb",
+            "Description": "3 years Bachelor of Laws (LLB) programme offering comprehensive legal education with focus on constitutional, civil, and criminal law.",
+            "PageLink": "/academics/departments/llb",
+            "BannerPic": "/images/Department-of-Law-Image.jpg",
+            "PageRouteData": {
+                "DepartmentName": "Department of Law",
+                "YearofEstablishment": "2024",
+                "HODname": "Dr. Legal Expert",
+                "HODContactMailId": "hod_law@ssnlc.edu.in",
+                "DepartmentStaticData": "/RichText/LLB.html"
+            }
+        }
+    ],
+    "FacultyData": [
+        {
+            "department": "Law",
+            "members": [
+                {
+                    "name": "Dr. Anjula Chowbe",
+                    "position": "Principal",
+                    "qualification": "Ph.D. in Law",
+                    "specialization": "Constitutional Law",
+                    "email": "principal@ssnlc.edu.in",
+                    "image": "/images/faculty/principal.jpg"
+                },
+                {
+                    "name": "Ms. Sakshi Babu Prathamshetty",
+                    "position": "Assistant Professor",
+                    "qualification": "LL.M.",
+                    "specialization": "Civil Law",
+                    "email": "sakshi.p@ssnlc.edu.in",
+                    "image": "/images/faculty/sakshi.jpg"
+                },
+                {
+                    "name": "Mr. Fate Purushottam Jagannath",
+                    "position": "Assistant Professor",
+                    "qualification": "LL.M.",
+                    "specialization": "Criminal Law",
+                    "email": "fate.j@ssnlc.edu.in",
+                    "image": "/images/faculty/fate.jpg"
+                }
+            ]
+        }
+    ]
+}

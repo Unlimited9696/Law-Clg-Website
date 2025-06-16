@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Font fallback for Inter */
+@font-face {
+  font-family: 'Inter Fallback';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial');
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 107%;
+}
+
+@font-face {
+  font-family: 'Inter Fallback';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Arial');
+  ascent-override: 89%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 108%;
+}
+
+@font-face {
+  font-family: 'Inter Fallback';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Arial');
+  ascent-override: 89%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 109%;
+}
+
+@font-face {
+  font-family: 'Inter Fallback';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arial');
+  ascent-override: 88%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 110%;
+}
+
+/* Header hide on scroll for mobile */
+.hide-on-scroll {
+  transform: translateY(-100%);
+}
+
+/* Mobile navigation improvements */
+@media (max-width: 768px) {
+  #navbar-links {
+    padding-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  #navbar-links button {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #172554 !important; /* Strong blue-950 */
+    opacity: 1 !important;
+    text-shadow: none !important;
+  }
+  
+  #navbar-links li {
+    margin-bottom: 8px;
+  }
+  
+  /* Compact header on mobile */
+  #navbar-container {
+    font-size: 0.9rem;
+  }
+  
+  #navbar-container .container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* Improve dropdown menu on mobile */
+  #navbar-links .dropdown-menu {
+    background-color: rgba(249, 250, 251, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Improve hamburger menu button */
+  #navicon {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+  }
+
+  #navicon span {
+    height: 2px;
+    background: #1e40af;
+  }
+}
+
+/* ============================= */
+/* Scrollbar css */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: antiquewhite;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-950;
+}
+
+::-webkit-scrollbar-thumb :hover {
+  background-color: blanchedalmond;
+}
+
+
+/* ============================= */
+/* scroll Animation css */
+
+.scroll-watcher {
+  height: 4px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  /* background-color: #000944; */
+  @apply bg-blue-950;
+  width: 100%;
+  scale: 0 1;
+  transform-origin: left;
+  animation: scroll-watcher linear;
+  animation-timeline: scroll(Y);
+}
+
+@keyframes scroll-watcher {
+  to {
+    scale: 1 1;
+  }
+}
+
+/* Loader fade-in-out animation */
+@keyframes fadeInOut {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in-out {
+  animation: fadeInOut 0.5s;
+}

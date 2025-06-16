@@ -1,0 +1,85 @@
+# SSNLC.in VPS Deployment Instructions (Next.js + Node.js + MongoDB + Nginx)
+
+## 1. Update API URLs in Your Frontend
+- Use **relative URLs** for API calls (not localhost or 127.0.0.1):
+  Example:
+  ```js
+  // Instead of:
+  fetch('http://localhost:5000/api/important-links')
+  // Use:
+  fetch('/api/important-links')
+  ```
+
+## 2. Set Up CORS in Your Backend (Express)
+- In your Express app (server.js or app.js):
+  ```js
+  const cors = require('cors');
+  app.use(cors({
+    origin: 'https://ssnlc.in', // allow your domain
+    credentials: true
+  }));
+  ```
+
+## 3. Nginx Configuration
+- Edit your Nginx config (usually at `/etc/nginx/sites-available/default` or `/etc/nginx/sites-available/ssnlc.in`):
+
+  ```nginx
+  server {
+      listen 80;
+      server_name ssnlc.in www.sslnc.in;
+
+      # Frontend (Next.js)
+      location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection 'upgrade';
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+      }
+
+      # Backend (Express API)
+      location /api/ {
+          proxy_pass http://localhost:5000/api/;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection 'upgrade';
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+      }
+  }
+  ```
+- This will forward all `/api/` requests to your backend and everything else to your frontend.
+
+## 4. Firewall Settings
+- Allow only HTTP (80) and HTTPS (443) ports in your VPS firewall.
+- You do **not** need to open 3000 or 5000 to the public.
+
+## 5. Start Your Apps
+- Start backend:
+  ```sh
+  PORT=5000 node server.js
+  ```
+- Start frontend:
+  ```sh
+  PORT=3000 npm start # after npm run build
+  ```
+
+## 6. Check Everything
+- Visit `https://ssnlc.in` — frontend should load.
+- API calls like `/api/important-links` should work (check browser Network tab).
+- No CORS errors, no 404s for API.
+
+## 7. (Optional) Enable HTTPS
+- Use [Let's Encrypt](https://certbot.eff.org/) for a free SSL certificate and update your Nginx config for port 443.
+
+## 8. Summary Checklist
+- [x] Use relative API URLs in frontend (`/api/...`)
+- [x] Set CORS in backend for your domain
+- [x] Use Nginx config above
+- [x] Open only ports 80/443 in firewall
+- [x] Start both apps on the server
+- [x] Test everything
+
+---
+**If you need to update or debug, check browser Network tab and backend logs for errors.** 
